@@ -1,16 +1,22 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { Link, NavigationContainer } from "@react-navigation/native";
 import { PaperProvider } from "react-native-paper";
 import Home from "./screens/Home";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import DeputadosStack from "./screens/deputados/DeputadosStack";
 import FavoritosStack from "./screens/favoritos/FavoritosStack";
-import noticiasStack from "./screens/noticias/noticiasStack";
+import NoticiassStack from "./screens/noticias/NoticiassStack";
+import { Linking } from "react-native";
 
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
+
+  const handlePress = () => {
+    Linking.openURL('http://127.0.0.1:5500/pages/');
+  };
+
   return (
    
     <>
@@ -40,19 +46,19 @@ export default function App() {
                 }}
             />
                 <Tab.Screen
-                  name="Favoritos"
-                  component={FavoritosStack}
+                  name="Jogo"
+                  component={handlePress}
                   activeColor="#D3D031"
                   options={{
-                    tabBarLabel: 'Favoritos',
+                    tabBarLabel: 'Jogo',
                     tabBarIcon: ({color}) => (
-                      <MaterialCommunityIcons name="heart-outline" color={color} size={26} />
+                      <MaterialCommunityIcons name="gamepad-variant" color={color} size={26} />
                     ),
                   }}
                 />
                 <Tab.Screen
                   name="noticias"
-                  component={noticiasStack}
+                  component={NoticiassStack}
                   activeColor="#D3D031"
                   options={{
                     tabBarLabel: 'noticias',

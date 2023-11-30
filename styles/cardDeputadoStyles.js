@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const cardDeputadoStyles = StyleSheet.create({
     card: {
